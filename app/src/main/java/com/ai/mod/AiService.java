@@ -63,7 +63,7 @@ public class AiService extends AccessibilityService {
   JSONObject body=new JSONObject().put("systemInstruction",new JSONObject().put("parts",new JSONArray().put(new JSONObject().put("text",sys))))
    .put("contents",new JSONArray().put(new JSONObject().put("parts",parts)))
    .put("generationConfig",new JSONObject().put("maxOutputTokens",1000).put("responseMimeType","application/json"));
-  HttpURLConnection u=(HttpURLConnection)new URL("https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent").openConnection();
+  HttpURLConnection u=(HttpURLConnection)new URL("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent").openConnection();
   u.setRequestMethod("POST");u.setDoOutput(true);u.setConnectTimeout(30000);u.setReadTimeout(90000);
   u.setRequestProperty("x-goog-api-key",getSharedPreferences("a",0).getString("k",""));u.setRequestProperty("content-type","application/json");
   u.getOutputStream().write(body.toString().getBytes("UTF-8"));
