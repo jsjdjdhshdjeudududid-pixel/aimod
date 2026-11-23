@@ -3,7 +3,7 @@ import android.app.Activity;import android.content.*;import android.os.Bundle;im
 public class MainActivity extends Activity {
  protected void onCreate(Bundle b){super.onCreate(b);
   LinearLayout l=new LinearLayout(this);l.setOrientation(1);l.setPadding(40,80,40,40);
-  final EditText k=new EditText(this);k.setHint("Claude API key");
+  final EditText k=new EditText(this);k.setHint("Gemini API key");
   final SharedPreferences sp=getSharedPreferences("a",0);k.setText(sp.getString("k",""));
   Button s=new Button(this);s.setText("Save key");
   s.setOnClickListener(v->{sp.edit().putString("k",k.getText().toString().trim()).apply();Toast.makeText(this,"Saved",0).show();});
